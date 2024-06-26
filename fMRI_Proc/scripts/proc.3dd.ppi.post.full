@@ -1,0 +1,33 @@
+#!/bin/tcsh
+
+set subj = $1
+set seedlab = $2
+set prefix_3dd = PPI.$subj.$seedlab
+set statsdir = ../funcpp 
+set Param1 = option_CRandEV 
+set Param2 = option_RPE 
+# ------------------------------
+# run the regression analysis
+3dDeconvolve -input $statsdir/pb07s.$subj.r*.scale+tlrc.HEAD    \
+    -mask $statsdir/mask_epi_anat.$subj.nii.gz   \
+    -censor $statsdir/motion_${subj}_censor.1D  \
+    -ortvec $statsdir/motion_demean.1D mot_demean   \
+    -polort 2   \
+    -num_stimts 5   \
+    -stim_times_AM2 1 stimuli/AFNI_timing.times.1.txt 'BLOCK5(1,1)'     \
+    -stim_label 1 $Param1    \
+    -stim_times_AM2 2 stimuli/AFNI_timing.times.2.txt 'BLOCK5(1,1)' \
+    -stim_label 2 $Param2    \
+    -stim_file 3 stimuli/p6.$subj.$seedlab.01.$Param1.rall.PPI.1D \
+    -stim_label 3 PPI.$Param1   \
+    -stim_file 4 stimuli/p6.$subj.$seedlab.02.$Param2.rall.PPI.1D \
+    -stim_label 4 PPI.$Param2    \
+    -stim_file 5 stimuli/ppi.$subj.$seedlab.1D  \
+    -stim_label 5 PPI.seed  \
+    -jobs 8 \
+    -fout -tout -x1D ${prefix_3dd}.X.xmat.1D -xjpeg ${prefix_3dd}.X.jpg   \
+    -x1D_uncensored ${prefix_3dd}.X.nocensor.xmat.1D \
+    -errts ${prefix_3dd}.errts  \
+    -bucket ${prefix_3dd}.stats
+
+

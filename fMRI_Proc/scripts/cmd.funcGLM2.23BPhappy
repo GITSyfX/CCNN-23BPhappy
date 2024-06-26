@@ -1,0 +1,110 @@
+#!/usr/bin/tcsh 
+
+
+set dirA = /home/data/yufengspace/23BPhappy
+set mask_dset = /home/data/yufengspace/23BPhappy/results/Group_mask_inter+tlrc
+
+set Param1 = 'option_CRandEV'
+set Param2 = 'gamble_RPE'
+
+3dttest++ -Clustsim \
+          -prefix GLM2_ALL_option_EV \
+          -mask $mask_dset \
+          -setA MDD+BD \
+               01 "$dirA/20230206_BPhappy_M002/funcGLM1/M002_${Param1}_${Param2}_stats+tlrc[6]" \
+               02 "$dirA/20230220_BPhappy_M003/funcGLM1/M003_${Param1}_${Param2}_stats+tlrc[6]" \
+               03 "$dirA/20230227_BPhappy_M005/funcGLM1/M005_${Param1}_${Param2}_stats+tlrc[6]" \
+               04 "$dirA/20230227_BPhappy_M006/funcGLM1/M006_${Param1}_${Param2}_stats+tlrc[6]" \
+               05 "$dirA/20230312_BPhappy_M008/funcGLM1/M008_${Param1}_${Param2}_stats+tlrc[6]" \
+               06 "$dirA/20230312_BPhappy_M009/funcGLM1/M009_${Param1}_${Param2}_stats+tlrc[6]" \
+               07 "$dirA/20230313_BPhappy_M010/funcGLM1/M010_${Param1}_${Param2}_stats+tlrc[6]" \
+               08 "$dirA/20230313_BPhappy_M011/funcGLM1/M011_${Param1}_${Param2}_stats+tlrc[6]" \
+               09 "$dirA/20230318_BPhappy_M012/funcGLM1/M012_${Param1}_${Param2}_stats+tlrc[6]" \
+               10 "$dirA/20230318_BPhappy_M013/funcGLM1/M013_${Param1}_${Param2}_stats+tlrc[6]" \
+               11 "$dirA/20230318_BPhappy_M014/funcGLM1/M014_${Param1}_${Param2}_stats+tlrc[6]" \
+               12 "$dirA/20230320_BPhappy_M015/funcGLM1/M015_${Param1}_${Param2}_stats+tlrc[6]" \
+               13 "$dirA/20230325_BPhappy_M016/funcGLM1/M016_${Param1}_${Param2}_stats+tlrc[6]" \
+               14 "$dirA/20230326_BPhappy_M019/funcGLM1/M019_${Param1}_${Param2}_stats+tlrc[6]" \
+               15 "$dirA/20230327_BPhappy_M020/funcGLM1/M020_${Param1}_${Param2}_stats+tlrc[6]" \
+               16 "$dirA/20230403_BPhappy_M022/funcGLM1/M022_${Param1}_${Param2}_stats+tlrc[6]" \
+               17 "$dirA/20230408_BPhappy_M023/funcGLM1/M023_${Param1}_${Param2}_stats+tlrc[6]" \
+               18 "$dirA/20230408_BPhappy_M024/funcGLM1/M024_${Param1}_${Param2}_stats+tlrc[6]" \
+               19 "$dirA/20230417_BPhappy_M027/funcGLM1/M027_${Param1}_${Param2}_stats+tlrc[6]" \
+               20 "$dirA/20230422_BPhappy_M028/funcGLM1/M028_${Param1}_${Param2}_stats+tlrc[6]" \
+               21 "$dirA/20230422_BPhappy_M029/funcGLM1/M029_${Param1}_${Param2}_stats+tlrc[6]" \
+               22 "$dirA/20230508_BPhappy_M031/funcGLM1/M031_${Param1}_${Param2}_stats+tlrc[6]" \
+               23 "$dirA/20230513_BPhappy_M033/funcGLM1/M033_${Param1}_${Param2}_stats+tlrc[6]" \
+               24 "$dirA/20230513_BPhappy_M034/funcGLM1/M034_${Param1}_${Param2}_stats+tlrc[6]" \
+               25 "$dirA/20230515_BPhappy_M035/funcGLM1/M035_${Param1}_${Param2}_stats+tlrc[6]" \
+               26 "$dirA/20230520_BPhappy_M036/funcGLM1/M036_${Param1}_${Param2}_stats+tlrc[6]" \
+               27 "$dirA/20230520_BPhappy_M037/funcGLM1/M037_${Param1}_${Param2}_stats+tlrc[6]" \
+               28 "$dirA/20230522_BPhappy_M038/funcGLM1/M038_${Param1}_${Param2}_stats+tlrc[6]" \
+               29 "$dirA/20230527_BPhappy_M039/funcGLM1/M039_${Param1}_${Param2}_stats+tlrc[6]" \
+               30 "$dirA/20230529_BPhappy_M040/funcGLM1/M040_${Param1}_${Param2}_stats+tlrc[6]" \
+               31 "$dirA/20230529_BPhappy_M041/funcGLM1/M041_${Param1}_${Param2}_stats+tlrc[6]" \
+               32 "$dirA/20230610_BPhappy_M042/funcGLM1/M042_${Param1}_${Param2}_stats+tlrc[6]" \
+               33 "$dirA/20230610_BPhappy_M043/funcGLM1/M043_${Param1}_${Param2}_stats+tlrc[6]" \
+               34 "$dirA/20230620_BPhappy_M045/funcGLM1/M045_${Param1}_${Param2}_stats+tlrc[6]" \
+               35 "$dirA/20230621_BPhappy_M046/funcGLM1/M046_${Param1}_${Param2}_stats+tlrc[6]" \
+               36 "$dirA/20230628_BPhappy_M048/funcGLM1/M048_${Param1}_${Param2}_stats+tlrc[6]" \
+               37 "$dirA/20230704_BPhappy_M049/funcGLM1/M049_${Param1}_${Param2}_stats+tlrc[6]" \
+               38 "$dirA/20230708_BPhappy_M050/funcGLM1/M050_${Param1}_${Param2}_stats+tlrc[6]" \
+               39 "$dirA/20230711_BPhappy_M052/funcGLM1/M052_${Param1}_${Param2}_stats+tlrc[6]" \
+               40 "$dirA/20230715_BPhappy_M053/funcGLM1/M053_${Param1}_${Param2}_stats+tlrc[6]" \
+               41 "$dirA/20230715_BPhappy_M054/funcGLM1/M054_${Param1}_${Param2}_stats+tlrc[6]" \
+               42 "$dirA/20230725_BPhappy_M055/funcGLM1/M055_${Param1}_${Param2}_stats+tlrc[6]" \
+               43 "$dirA/20230730_BPhappy_M057/funcGLM1/M057_${Param1}_${Param2}_stats+tlrc[6]" \
+               44 "$dirA/20230805_BPhappy_M060/funcGLM1/M060_${Param1}_${Param2}_stats+tlrc[6]" \
+               45 "$dirA/20230808_BPhappy_M061/funcGLM1/M061_${Param1}_${Param2}_stats+tlrc[6]"  
+               
+3dttest++ -Clustsim \
+          -prefix GLM2_CT_option_EV \
+          -mask $mask_dset \
+          -setA MDD \
+               01 "$dirA/20230220_BPhappy_M003/funcGLM1/M003_${Param1}_${Param2}_stats+tlrc[6]" \
+               02 "$dirA/20230227_BPhappy_M005/funcGLM1/M005_${Param1}_${Param2}_stats+tlrc[6]" \
+               03 "$dirA/20230313_BPhappy_M010/funcGLM1/M010_${Param1}_${Param2}_stats+tlrc[6]" \
+               04 "$dirA/20230318_BPhappy_M012/funcGLM1/M012_${Param1}_${Param2}_stats+tlrc[6]" \
+               05 "$dirA/20230318_BPhappy_M013/funcGLM1/M013_${Param1}_${Param2}_stats+tlrc[6]" \
+               06 "$dirA/20230327_BPhappy_M020/funcGLM1/M020_${Param1}_${Param2}_stats+tlrc[6]" \
+               07 "$dirA/20230403_BPhappy_M022/funcGLM1/M022_${Param1}_${Param2}_stats+tlrc[6]" \
+               08 "$dirA/20230417_BPhappy_M027/funcGLM1/M027_${Param1}_${Param2}_stats+tlrc[6]" \
+               09 "$dirA/20230422_BPhappy_M028/funcGLM1/M028_${Param1}_${Param2}_stats+tlrc[6]" \
+               10 "$dirA/20230515_BPhappy_M035/funcGLM1/M035_${Param1}_${Param2}_stats+tlrc[6]" \
+               11 "$dirA/20230529_BPhappy_M041/funcGLM1/M041_${Param1}_${Param2}_stats+tlrc[6]" \
+               12 "$dirA/20230610_BPhappy_M043/funcGLM1/M043_${Param1}_${Param2}_stats+tlrc[6]" \
+               13 "$dirA/20230621_BPhappy_M046/funcGLM1/M046_${Param1}_${Param2}_stats+tlrc[6]" \
+               14 "$dirA/20230628_BPhappy_M048/funcGLM1/M048_${Param1}_${Param2}_stats+tlrc[6]" \
+               15 "$dirA/20230704_BPhappy_M049/funcGLM1/M049_${Param1}_${Param2}_stats+tlrc[6]" \
+               16 "$dirA/20230708_BPhappy_M050/funcGLM1/M050_${Param1}_${Param2}_stats+tlrc[6]" \
+               17 "$dirA/20230711_BPhappy_M052/funcGLM1/M052_${Param1}_${Param2}_stats+tlrc[6]" \
+               18 "$dirA/20230715_BPhappy_M053/funcGLM1/M053_${Param1}_${Param2}_stats+tlrc[6]" \
+               19 "$dirA/20230730_BPhappy_M057/funcGLM1/M057_${Param1}_${Param2}_stats+tlrc[6]" \
+               20 "$dirA/20230805_BPhappy_M060/funcGLM1/M060_${Param1}_${Param2}_stats+tlrc[6]" \
+          -setB BD \
+               21 "$dirA/20230206_BPhappy_M002/funcGLM1/M002_${Param1}_${Param2}_stats+tlrc[6]" \
+               22 "$dirA/20230227_BPhappy_M006/funcGLM1/M006_${Param1}_${Param2}_stats+tlrc[6]" \
+               23 "$dirA/20230312_BPhappy_M008/funcGLM1/M008_${Param1}_${Param2}_stats+tlrc[6]" \
+               24 "$dirA/20230312_BPhappy_M009/funcGLM1/M009_${Param1}_${Param2}_stats+tlrc[6]" \
+               25 "$dirA/20230313_BPhappy_M011/funcGLM1/M011_${Param1}_${Param2}_stats+tlrc[6]" \
+               26 "$dirA/20230318_BPhappy_M014/funcGLM1/M014_${Param1}_${Param2}_stats+tlrc[6]" \
+               27 "$dirA/20230320_BPhappy_M015/funcGLM1/M015_${Param1}_${Param2}_stats+tlrc[6]" \
+               28 "$dirA/20230325_BPhappy_M016/funcGLM1/M016_${Param1}_${Param2}_stats+tlrc[6]" \
+               29 "$dirA/20230326_BPhappy_M019/funcGLM1/M019_${Param1}_${Param2}_stats+tlrc[6]" \
+               30 "$dirA/20230408_BPhappy_M023/funcGLM1/M023_${Param1}_${Param2}_stats+tlrc[6]" \
+               31 "$dirA/20230408_BPhappy_M024/funcGLM1/M024_${Param1}_${Param2}_stats+tlrc[6]" \
+               32 "$dirA/20230422_BPhappy_M029/funcGLM1/M029_${Param1}_${Param2}_stats+tlrc[6]" \
+               33 "$dirA/20230508_BPhappy_M031/funcGLM1/M031_${Param1}_${Param2}_stats+tlrc[6]" \
+               34 "$dirA/20230513_BPhappy_M033/funcGLM1/M033_${Param1}_${Param2}_stats+tlrc[6]" \
+               35 "$dirA/20230513_BPhappy_M034/funcGLM1/M034_${Param1}_${Param2}_stats+tlrc[6]" \
+               36 "$dirA/20230520_BPhappy_M036/funcGLM1/M036_${Param1}_${Param2}_stats+tlrc[6]" \
+               37 "$dirA/20230520_BPhappy_M037/funcGLM1/M037_${Param1}_${Param2}_stats+tlrc[6]" \
+               38 "$dirA/20230522_BPhappy_M038/funcGLM1/M038_${Param1}_${Param2}_stats+tlrc[6]" \
+               39 "$dirA/20230527_BPhappy_M039/funcGLM1/M039_${Param1}_${Param2}_stats+tlrc[6]" \
+               40 "$dirA/20230529_BPhappy_M040/funcGLM1/M040_${Param1}_${Param2}_stats+tlrc[6]" \
+               41 "$dirA/20230610_BPhappy_M042/funcGLM1/M042_${Param1}_${Param2}_stats+tlrc[6]" \
+               42 "$dirA/20230620_BPhappy_M045/funcGLM1/M045_${Param1}_${Param2}_stats+tlrc[6]" \
+               43 "$dirA/20230715_BPhappy_M054/funcGLM1/M054_${Param1}_${Param2}_stats+tlrc[6]" \
+               44 "$dirA/20230725_BPhappy_M055/funcGLM1/M055_${Param1}_${Param2}_stats+tlrc[6]" \
+               45 "$dirA/20230808_BPhappy_M061/funcGLM1/M061_${Param1}_${Param2}_stats+tlrc[6]"   
+
