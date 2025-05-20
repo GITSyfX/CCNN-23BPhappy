@@ -29,8 +29,8 @@ for trial=1:length(decision_trial)
 
     item4=0;
     for j=1:trial
-        thisDIF=decision_trial(j).DIF;
-        item4=item4+gamma^(trial-j) * thisDIF;
+        thisREGR=decision_trial(j).REGR;
+        item4=item4+gamma^(trial-j) * thisREGR;
     end
 
     
@@ -45,7 +45,8 @@ inx=cellfun(@isempty,{decision_trial.happiness});
 allfit_happiness=[decision_trial.fit_happiness];
 allfit_happiness(inx)=[];
 
-loss=zscore([allfit_happiness])-zscore([decision_trial.happiness]);
+%loss=zscore([allfit_happiness])-zscore([decision_trial.happiness]);
+loss=allfit_happiness-zscore([decision_trial.happiness]);
 
 
 

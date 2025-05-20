@@ -37,7 +37,8 @@ inx=cellfun(@isempty,{decision_trial.happiness});
 allfit_happiness=[decision_trial.fit_happiness];
 allfit_happiness(inx)=[];
 
-loss=zscore([allfit_happiness])-zscore([decision_trial.happiness]);
+%loss=zscore([allfit_happiness])-zscore([decision_trial.happiness]);
+loss=allfit_happiness-zscore([decision_trial.happiness]);
 
 
 

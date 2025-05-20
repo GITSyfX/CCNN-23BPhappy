@@ -6,10 +6,10 @@ clear;clc;rng('Shuffle');
 
 %%
 delete(gcp('nocreate'));
-parpool(5);
+parpool(8);
 
 %% 初步整理数据
-allmat=dir('*risky_decision.mat');
+allmat=dir('D:\CCNN\Projects\23BPHappy\Analysis\Modelfit\First_Level\*risky_decision.mat');
 for i=1:length(allmat)
     thisname=allmat(i).name;
     inx=strfind(thisname,'-');
@@ -27,8 +27,8 @@ for sub=1:length(allsub)
     part_names={allmat(inx).name};
     
     
-    part1=load(part_names{1},'result');
-    part2=load(part_names{2},'result');
+    part1=load(['D:\CCNN\Projects\23BPHappy\Analysis\Modelfit\First_Level\',part_names{1}],'result');
+    part2=load(['D:\CCNN\Projects\23BPHappy\Analysis\Modelfit\First_Level\',part_names{2}],'result');
     
     %删去每个part的第一个trial的happiness评分
     part1.result(1)=[];
@@ -61,7 +61,7 @@ for sub=1:length(allsub)
     bounds=[-10,-10,-10,0;10,10,10,1];
     %w0 w1 w2 w3 gamma
     record=[];
-    parfor i=1:5
+    parfor i=1:80
         range=bounds(2,:)-bounds(1,:);
         params=rand(1,length(range)).*range+bounds(1,:);
         [x,resnorm,residual,exitflag] = lsqnonlin(fitfun,params,bounds(1,:),bounds(2,:));
@@ -75,23 +75,24 @@ for sub=1:length(allsub)
     x1=record(1,params_n+1:params_n*2);
     [residual,fit_decision_trial]=fitfun(x1);
 
-    loss = sum(residual.*residual, 2);
-
-    AIC = loss + 2 * params_n;
-    BIC = loss + log(size(fit_decision_trial,2)) + 2 * params_n;
+    SSE = sum(residual.*residual, 2); 
+    datasize_n = size(residual,2);
+    
+    AIC = datasize_n*log(SSE/datasize_n) + 2 * params_n;
+    BIC = datasize_n*log(var(residual)) + params_n*log(datasize_n); % https://pmc.ncbi.nlm.nih.gov/articles/PMC7516921/
 
     IC = [AIC,BIC];
 
     allsub{2,sub}=record;
     allsub{3,sub}=decision_trial;
-    allsub{4,sub}=loss;
+    allsub{4,sub}=SSE;
     allsub{5,sub}=fit_decision_trial;
     allsub{6,sub}=IC;
     
 end
 
 
-save('fit_result.mat','allsub');
+save('fit_result_z.mat','allsub');
 
 
 

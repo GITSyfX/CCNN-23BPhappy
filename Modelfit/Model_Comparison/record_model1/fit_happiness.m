@@ -27,7 +27,7 @@ for trial=1:length(decision_trial)
         item3=item3+gamma^(trial-j) * thisRPE;
     end
     
-    
+
     %当前试次结束后的happiness
     decision_trial(trial).fit_happiness=w1*item1+w2*item2+w3*item3; 
     
@@ -38,7 +38,8 @@ inx=cellfun(@isempty,{decision_trial.happiness});
 allfit_happiness=[decision_trial.fit_happiness];
 allfit_happiness(inx)=[];
 
-loss=zscore([allfit_happiness])-zscore([decision_trial.happiness]);
+%loss=zscore([allfit_happiness])-zscore([decision_trial.happiness]);
+loss=allfit_happiness-zscore([decision_trial.happiness]);
 
 
 

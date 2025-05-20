@@ -1,1 +1,1 @@
-模型比较时，数据均被z值化以减少其波动对于模型评价的影响
+For model comparison, mood ratings are z-valued to reduce the impact of their fluctuations on model evaluation. Therefore, the coefficient w0, which represents the mood baseline, is treated as 0 and excluded from the model comparison.
